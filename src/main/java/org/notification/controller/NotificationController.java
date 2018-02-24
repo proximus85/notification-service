@@ -18,7 +18,7 @@ public class NotificationController {
 
     @RequestMapping(path = "{messageType}", method = RequestMethod.POST)
     public void sendNotification(@PathVariable("messageType") MessageType messageType) {
-        notificationService.sendNotification(messageType);
+        notificationService.invokeMessageSenderOfType(messageType);
     }
 
 }

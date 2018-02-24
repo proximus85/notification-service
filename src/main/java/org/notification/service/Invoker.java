@@ -2,11 +2,12 @@ package org.notification.service;
 
 import org.notification.dto.MessageType;
 
-public interface NotificationService {
+public interface Invoker {
+
     /**
-     * Sends messages of specific type.
+     * Triggers message type specific command.
      *
      * @param messageType message type.
      */
-    void invokeMessageSenderOfType(MessageType messageType);
+    void triggerCommandOfType(MessageType messageType);
 }

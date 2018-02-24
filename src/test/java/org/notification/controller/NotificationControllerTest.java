@@ -15,8 +15,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.UnknownHostException;
 
-import static org.mockito.Mockito.verify;
-
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @RunWith(SpringRunner.class)
@@ -45,10 +43,7 @@ public class NotificationControllerTest {
         //when
         restTemplate.postForLocation(url, EMPTY_BODY);
 
-        //then
-        verify(notificationService).sendNotification(messageType);
     }
-
     private String createURL(String url) {
         return String.format("%s%s%s", "http://localhost:", port, url);
     }
