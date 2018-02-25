@@ -8,27 +8,22 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class CommandInvoker implements Invoker {
 
+    @Autowired
+    private List<Command> sendCommands;
+
     private Map<MessageType, Command> messageTypeCommandMap = null;
-
-    @Autowired
-    @Qualifier("SmsSendCommand")
-    private Command smsSendCommand;
-
-    @Autowired
-    @Qualifier("MailSendCommand")
-    private Command mailSendCommand;
 
     @PostConstruct
     private void initializeCommands() {
-        messageTypeCommandMap = new HashMap<>();
-        messageTypeCommandMap.put(MessageType.SMS, smsSendCommand);
-        messageTypeCommandMap.put(MessageType.MAIL, mailSendCommand);
+        messageTypeCommandMap = sendCommands.stream()
+                .collect(Collectors.toMap(s -> s.getMessageType(), s -> s));
     }
 
     @Override

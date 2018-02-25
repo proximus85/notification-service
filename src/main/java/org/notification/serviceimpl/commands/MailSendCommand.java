@@ -1,5 +1,6 @@
 package org.notification.serviceimpl.commands;
 
+import org.notification.dto.MessageType;
 import org.notification.service.Command;
 import org.notification.service.Receiver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class MailSendCommand implements Command {
     @Override
     public void execute() {
         receiver.performAction();
+    }
+
+    @Override
+    public MessageType getMessageType() {
+        return MessageType.MAIL;
     }
 
 }
