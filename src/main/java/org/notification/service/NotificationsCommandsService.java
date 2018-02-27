@@ -2,7 +2,7 @@ package org.notification.service;
 
 import org.notification.dto.MessageType;
 
-public interface Invoker {
+public interface NotificationsCommandsService {
 
     /**
      * Triggers message type specific command.
