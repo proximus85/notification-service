@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "EVENT")
 @AllArgsConstructor
+@Table(name = "EVENT")
 public class Event extends BaseEntity {
 
     private EventType eventType;

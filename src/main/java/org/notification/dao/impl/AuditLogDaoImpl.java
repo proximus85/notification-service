@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AuditLogDaoImpl extends AbstractBaseDao<Event> implements AuditLogDao<Event> {
 
+    protected AuditLogDaoImpl() {
+        super(Event.class);
+    }
+
     public void persist(Event event) {
         entityManager.persist(event);
     }

@@ -1,8 +1,11 @@
 package org.notification.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.Date;
 
+@Getter
 @MappedSuperclass
 public abstract class BaseEntity {
 
